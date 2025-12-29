@@ -10,180 +10,203 @@
 <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/> 
 <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 <link type="text/css" href="css/css3.css" rel="stylesheet" />
-<!--<script type="text/javascript" src=" http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>-->
-
-<script type="text/javascript" src="https://libs.baidu.com/jquery/1.6.4/jquery.min.js">"></script>
+<script type="text/javascript" src="https://libs.baidu.com/jquery/1.6.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.pikachoose.js"></script>
 <script language="javascript">
-			$(document).ready(
-				function (){
-					$("#pikame").PikaChoose();
-				});
-		</script>
-		
+    $(document).ready(
+        function (){
+            $("#pikame").PikaChoose();
+        });
+</script>
 
+<!-- 折叠/展开功能脚本 -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const collapsibles = document.querySelectorAll('.collapsible-header');
+        
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+        
+        // 默认展开第一个部分（核心开发者）
+        document.querySelector('.collapsible-header').click();
+    });
+</script>
 
-    </head>
+</head>
 <body>
 
-	
-    <!--start container-->
-    <div id="container">
+<!--start container-->
+<div id="container">
 
-    <!--start header-->
+<!--start header-->
+<header>
 
-    <header>
- 
-    <!--start logo-->
-    <a href="#" id="logo"><img src="images/logo.png" width="310" height="100" alt="logo"/></a>    
+<!--start logo-->
+<a href="#" id="logo"><img src="images/logo.png" width="310" height="100" alt="logo"/></a>    
 
-	<!--end logo-->
-	
-   <!--start menu-->
+<!--end logo-->
 
-	<nav>
-    <ul>
-    <li><a href="index.html" target="_blank" >AISP</a>
+<!--start menu-->
+<nav>
+<ul>
+<li><a href="index.html" target="_blank">AISP</a></li>
+<li><a href="features.html" target="_blank">Features</a></li>
+<li><a href="team.html" class="current">Development Team</a></li>
+<li><a href="tut.html" target="_blank">Tutorial</a></li>
+</ul>
+</nav>
+<!--end menu-->
 
-	</li>
-     <li><a href="features.html" target="_blank" >Features</a></li>
-<!--	<li><a href="#">Services</a></li>-->
-<!--	<li><a href="#">Release notes</a></li>-->
-    <li><a href="team.html"   class="current">Development Team</a></li>
-    <li><a href="tut.html"  target="_blank">Tutorial</a></li>
-    </ul>
-    </nav>
-	<!--end menu-->
-	
+<!--end header-->
+</header>
 
-    <!--end header-->
-	</header>
+<!--start intro-->
+<div id="intro2">
 
+<div class="group_bannner_right">
+<img src="images/picture.png" width="251" height="326" alt="team illustration">
+</div>
 
-   <!--start intro-->
+<header class="group_bannner_left">
+<hgroup>
+<h1>Development Team</h1>
 
-   <div id="intro2">
-   
-   <div class="group_bannner_right">
-   <img src="images/picture.png" width="251" height="326"  alt="baner">
-   </div>
-   
-   <header class="group_bannner_left">
-   <hgroup>
-   <h1>Development Team</h1>
- 
-   <h2> AISP project is supervised by <a id="prof" target="_blank" href="http://staff.ustc.edu.cn/~liqun/">Prof. Qunxiang Li </a> and <a id="prof" target="_blank" href="http://staff.ustc.edu.cn/~jlyang/">Prof.Jinlong Yang </a> at University of Science and Technology of China
-	     
-		 </h2>
-		 
-		 <hr/>
-		 <ul id="ful">
-	<h2> <li><b>Core developers</h2>
-	
-	 </ul>
-	
-	<h2> <b>WeiYi Wang</b></h2>
-	 <h2>Responsible for the overall architecture and design of the AISP program</h2>  
-	<h2> University of Science and Technology of China</h2>
-	<h2> Hefei, Anhui, dancingw@mail.ustc.edu.cn</h2>
-
-
-	   <h2> <b>Chan Yong Keat</b></h2>
-	<h2>Responsible for the functional development and optimization of the AispGen and AispOP programs,
-		as well as the development of subsequent functions.</h2>
-	<h2>Universiti Sains Malaysia, USM</h2>
-	<h2> Hefei, Anhui, cykeat@student.usm.my</h2>
-
-    	   <h2> <b>Lizhou Yang</b></h2>
-	  <h2> Responsible for the development of post-processing scripts and workflows in Aisp</h2>
-	<h2>University of Science and Technology of China</h2>
-	<h2> Hefei, Anhui, yanglizhou@mail.ustc.edu.cn</h2>
-
-	   	   <h2> <b>Yankai Mo</b></h2>
-	   <h2>  Responsible for the functional design and development of the machine learning potential 
-		   and machine learning algorithms in the AispML module.</h2>
-	<h2>University of Science and Technology of China</h2>
-	<h2> Hefei, Anhui, myk@mail.ustc.edu.cn</h2>
-
- 	   <h2> <b>Yankai Mo</b></h2>
-	   <h2>  Responsible for the functional design and development of the machine learning potential 
-		   and machine learning algorithms in the AispML module.</h2>
-	<h2>University of Science and Technology of China</h2>
-	<h2> Hefei, Anhui, myk@mail.ustc.edu.cn</h2>
-
-   <h2> <b>YanJin Xiang</b></h2>
-	   <h2>Responsible for the design and development of the API functional interfaces in the AISP program.</h2>
-	<h2>University of Science and Technology of China</h2>
-	<h2> Hefei, Anhui, xiang_yanjin@mail.ustc.edu.cn</h2>
-
-
-	   <h2>Welcome to join the AISP development team!</h2>
-
-
-
-	 <hr/>
-	   
-       <ul id="ful">
-	<h2> <li><b>Cooperators</h2>
-      </ul>
-		
-	<h2> <b>Jiajun Wang</b></h2>
-	<h2> Tianjin Normal University</h2>
-	<h2> Tianjin, hxxywjj@tjnu.edu.cn</h2>
-
-	<h2> <b>Zhaoyong Guan</b></h2>
-	<h2> Shandong University</h2>
-	<h2> JiNan, Shandong, zyguan@sdu.edu.cn</h2>
-
-	<h2><b>Zhiwen Zhuo</b></h2>
-	<h2> University of Science and Technology of China</h2>
-	<h2> Hefei, Anhui, zhuozw@ustc.edu.cn </h2>
-	
-	<h2> <b>Ke Xu</b></h2>
-	<h2> Hubei University of Arts and Science</h2>
-	<h2> XiangYang, Hubei, xuke@hbuas.edu.cn</h2>
-
-	<h2> <b>Jie Meng</b></h2>
-	<h2> University of Science and Technology of China</h2>
-	<h2> Hefei, Anhui, damp@mail.ustc.edu.cn</h2>
-   
-	
-	
-   </hgroup>
-   
-   
-   
-   </header>
-   </div>
-   <!--end intro-->
-
-   
-   
-   <!--start holder-->
-
-   <div class="holder_content">
-   
-  
-
-   
+<!-- 教授信息 -->
+<div class="professor-info">
+    <div class="professor-text">
+        <h3>Project Supervisors</h3>
+        <p>AISP project is supervised by distinguished professors at the University of Science and Technology of China, bringing decades of expertise in computational chemistry and materials science.</p>
     </div>
-    <!--end holder-->
-
-   
-   
+    <div class="professor-links">
+        <a href="http://staff.ustc.edu.cn/~liqun/" target="_blank" class="professor-link">Prof. Qunxiang Li</a>
+        <a href="http://staff.ustc.edu.cn/~jlyang/" target="_blank" class="professor-link">Prof. Jinlong Yang</a>
     </div>
-   <!--end container-->
-   
-   <!--start footer-->
-   <footer>
-   <div class="container">  
-   <div id="FooterTwo"> © 2021 AISP PROJECT </div>
-   <div id="FooterTree">  <a href="http://www.aisp.tech" target="_blank" title="AISP">AISP HOME</a>   </div> 
-   </div>
-   </footer>
-   <!--end footer-->
+</div>
 
-   </body></html>
+<!-- 核心开发者部分 -->
+<div class="collapsible-section">
+    <button class="collapsible-header">Core Development Team (5 members)</button>
+    <div class="collapsible-content">
+        <div class="compact-team-grid">
+            <div class="compact-card">
+                <div class="compact-name">WeiYi Wang</div>
+                <div class="compact-role">Lead Architect & Designer</div>
+                <div class="compact-info">Responsible for the overall architecture and design of the AISP program.</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <div class="compact-contact">dancingw@mail.ustc.edu.cn</div>
+            </div>
+            
+            <div class="compact-card">
+                <div class="compact-name">Chan Yong Keat</div>
+                <div class="compact-role">Functional Development & Optimization</div>
+                <div class="compact-info">Development of AispGen, AispOP programs and subsequent functionalities.</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USM, Malaysia</div>
+                <div class="compact-contact">cykeat@student.usm.my</div>
+            </div>
+            
+            <div class="compact-card">
+                <div class="compact-name">Lizhou Yang</div>
+                <div class="compact-role">Post-processing & Workflows</div>
+                <div class="compact-info">Development of post-processing scripts and workflows in Aisp.</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <div class="compact-contact">yanglizhou@mail.ustc.edu.cn</div>
+            </div>
+            
+            <div class="compact-card">
+                <div class="compact-name">Yankai Mo</div>
+                <div class="compact-role">Machine Learning Algorithms</div>
+                <div class="compact-info">Functional design and development of ML potentials and algorithms (AispML).</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <div class="compact-contact">myk@mail.ustc.edu.cn</div>
+            </div>
+            
+            <div class="compact-card">
+                <div class="compact-name">YanJin Xiang</div>
+                <div class="compact-role">API Interfaces</div>
+                <div class="compact-info">Design and development of API functional interfaces in AISP.</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <div class="compact-contact">xiang_yanjin@mail.ustc.edu.cn</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 合作者部分 -->
+<div class="collapsible-section">
+    <button class="collapsible-header">Cooperators & Collaborators (7 members)</button>
+    <div class="collapsible-content">
+        <div class="compact-team-grid">
+            <div class="compact-card cooperator">
+                <div class="compact-name">Jiajun Wang</div>
+                <div class="compact-role">Collaborator</div>
+                <div class="compact-info"><strong>Affiliation:</strong> Tianjin Normal University</div>
+                <div class="compact-contact">hxxywjj@tjnu.edu.cn</div>
+            </div>
+            
+            <div class="compact-card cooperator">
+                <div class="compact-name">Zhaoyong Guan</div>
+                <div class="compact-role">Collaborator</div>
+                <div class="compact-info"><strong>Affiliation:</strong> Shandong University</div>
+                <div class="compact-contact">zyguan@sdu.edu.cn</div>
+            </div>
+            
+            <div class="compact-card cooperator">
+                <div class="compact-name">Zhiwen Zhuo</div>
+                <div class="compact-role">Collaborator</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <div class="compact-contact">zhuozw@ustc.edu.cn</div>
+            </div>
+            
+            <div class="compact-card cooperator">
+                <div class="compact-name">Ke Xu</div>
+                <div class="compact-role">Collaborator</div>
+                <div class="compact-info"><strong>Affiliation:</strong> Hubei University of Arts and Science</div>
+                <div class="compact-contact">xuke@hbuas.edu.cn</div>
+            </div>
+            
+            <div class="compact-card cooperator">
+                <div class="compact-name">Jie Meng</div>
+                <div class="compact-role">Collaborator</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <div class="compact-contact">damp@mail.ustc.edu.cn</div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
+</hgroup>
+</header>
+</div>
+<!--end intro-->
+
+<!--start holder-->
+<div class="holder_content"></div>
+<!--end holder-->
+
+</div>
+<!--end container-->
+
+
+
+</body>
+<!--start footer-->
+<footer>
+<div class="container">  
+<div id="FooterTwo">© 2021 AISP PROJECT</div>
+<div id="FooterTree"><a href="http://www.aisp.tech" target="_blank" title="AISP">AISP HOME</a></div> 
+</div>
+</footer>
+<!--end footer-->
+</html>

@@ -1,7 +1,7 @@
 <!doctype html>  
 <head>
 <meta charset="UTF-8">
-<title>introduction</title>
+<title>Introduction - AISP</title>
 <link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
  <!--[if lt IE 9]>
  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -10,106 +10,399 @@
 <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/> 
 <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 <link type="text/css" href="css/css3.css" rel="stylesheet" />
-<!--<script type="text/javascript" src=" http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>-->
-
-<script type="text/javascript" src="https://libs.baidu.com/jquery/1.6.4/jquery.min.js">"></script>
+<script type="text/javascript" src="https://libs.baidu.com/jquery/1.6.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.pikachoose.js"></script>
 <script language="javascript">
-			$(document).ready(
-				function (){
-					$("#pikame").PikaChoose();
-				});
-		</script>
-		
+    $(document).ready(
+        function (){
+            $("#pikame").PikaChoose();
+        });
+</script>
 
+<style>
+    /* 页面特定的美化样式 */
+    .hero-section {
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+        margin-top: 30px;
+    }
+    
+    .hero-content {
+        flex: 1;
+    }
+    
+    .hero-image {
+        flex-shrink: 0;
+        text-align: center;
+    }
+    
+    .hero-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .module-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin: 40px 0;
+    }
+    
+    .module-card {
+        background: white;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        border-top: 4px solid;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .module-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    
+    .module-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.8), transparent);
+    }
+    
+    .module-card.gen {
+        border-color: #663366;
+    }
+    
+    .module-card.op {
+        border-color: #00CCFF;
+    }
+    
+    .module-card.ml {
+        border-color: #33CC99;
+    }
+    
+    .module-icon {
+        font-size: 40px;
+        color: #663366;
+        margin-bottom: 15px;
+        display: inline-block;
+        padding: 10px;
+        border-radius: 8px;
+        background: rgba(102, 51, 102, 0.1);
+    }
+    
+    .module-title {
+        font-size: 22px;
+        color: #663366;
+        margin-bottom: 12px;
+        font-weight: bold;
+    }
+    
+    .module-subtitle {
+        font-size: 14px;
+        color: #00CCFF;
+        font-weight: bold;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .module-description {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 10px;
+    }
+    
+    .features-section {
+        background: linear-gradient(to right, #f8f6ff, #eef7ff);
+        padding: 30px;
+        border-radius: 10px;
+        margin: 40px 0;
+        border: 1px solid #e0e0e0;
+    }
+    
+    .features-section h3 {
+        color: #663366;
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .features-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    
+    .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .feature-icon {
+        color: #00CCFF;
+        font-size: 18px;
+        flex-shrink: 0;
+        margin-top: 3px;
+    }
+    
+    .feature-text {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #555;
+    }
+    
+    .highlight-box {
+        background: linear-gradient(135deg, #663366, #8a2be2);
+        color: white;
+        padding: 25px;
+        border-radius: 10px;
+        margin: 40px 0;
+        text-align: center;
+    }
+    
+    .highlight-box h3 {
+        color: white;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    
+    .highlight-box p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+        .hero-section {
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .module-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .features-list {
+            grid-template-columns: 1fr;
+        }
+        
+        .hero-image {
+            order: -1;
+        }
+        
+        .hero-image img {
+            max-width: 80%;
+        }
+    }
+    
+    /* 通用样式改进 */
+    h1 {
+        font-size: 42px;
+        color: #663366;
+        margin-bottom: 15px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    
+    h1::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(to right, #663366, #00CCFF);
+    }
+    
+    h2 {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #555;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .intro-text {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #444;
+        margin-bottom: 20px;
+        max-width: 800px;
+    }
+</style>
 
-    </head>
+</head>
 <body>
 
-	
-    <!--start container-->
-    <div id="container">
+<!--start container-->
+<div id="container">
 
-    <!--start header-->
+<!--start header-->
+<header>
 
-    <header>
- 
-    <!--start logo-->
-    <a href="#" id="logo"><img src="images/logo.png" width="310" height="100" alt="logo"/></a>    
+<!--start logo-->
+<a href="#" id="logo"><img src="images/logo.png" width="310" height="100" alt="AISP Logo"/></a>    
 
-	<!--end logo-->
-	
-   <!--start menu-->
+<!--end logo-->
 
-	<nav>
-    <ul>
-    <li><a href="#" class="current">AISP</a>
+<!--start menu-->
+<nav>
+<ul>
+<li><a href="#" class="current">AISP</a></li>
+<li><a href="features.html" target="_blank">Features</a></li>
+<li><a href="team.html" target="_blank">Development Team</a></li>
+<li><a href="tut.html" target="_blank">Tutorial</a></li>
+</ul>
+</nav>
+<!--end menu-->
 
-	</li>
-     <li><a href="features.html"  target="_blank">Features</a></li>
-<!--	<li><a href="#">Services</a></li>-->
-<!--	<li><a href="#">Release notes</a></li>-->
-    <li><a href="team.html"  target="_blank">Development Team</a></li>
-    <li><a href="tut.html"  target="_blank">Tutorial</a></li>
+<!--end header-->
+</header>
 
-    </ul>
-    </nav>
-	<!--end menu-->
-	
+<!--start intro-->
+<div id="intro2">
 
-    <!--end header-->
-	</header>
-
-
-   <!--start intro-->
-
-   <div id="intro2">
-   
-   <div class="group_bannner_right">
-   <img src="images/picture.png" width="251" height="326"  alt="baner">
-   </div>
-   
-   <header class="group_bannner_left">
-   <hgroup>
-   <h1>AISP</h1>
- 
-
-     <h2>We implement a crystal structure prediction package AISP which offers generating structure with symmetry constraints combined with a first-principles genetic algorithm (GA) for structural search. 
-	 AISP is written in Python and C++, and currently interfaces with Vienna Ab initio Simulation Package (VASP) to perform local optimizations in energy and force.
-<br>
-
-   
-    <h2>A flexiable framework of input parameters is also established  based on JSON format to make AISP user-friendly.</h2>
-	
-   </hgroup>
-   </header>
-   </div>
-   <!--end intro-->
-
-   
-   
-   <!--start holder-->
-
-   <div class="holder_content">
-   
-  
-
-   
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>AISP</h1>
+        <h2 class="intro-text">
+            A comprehensive software suite for crystal structure prediction and analysis, 
+            integrating symmetry constraints, genetic algorithms, and machine learning 
+            for advanced materials discovery.
+        </h2>
+        
+        <div class="module-grid">
+            <div class="module-card gen">
+                <div class="module-icon">🧬</div>
+                <div class="module-subtitle">Structure Generation</div>
+                <div class="module-title">AispGen</div>
+                <div class="module-description">
+                    A crystal structure generation module based on space group 
+                    symmetry constraint methods, enabling efficient creation of 
+                    initial crystal structures with precise symmetry requirements.
+                </div>
+            </div>
+            
+            <div class="module-card op">
+                <div class="module-icon">⚙️</div>
+                <div class="module-subtitle">Structure Search</div>
+                <div class="module-title">AispOp</div>
+                <div class="module-description">
+                    A crystal structure search module utilizing genetic algorithms 
+                    for exploring stable and metastable configurations, optimized 
+                    for discovering novel materials with desired properties.
+                </div>
+            </div>
+            
+            <div class="module-card ml">
+                <div class="module-icon">🤖</div>
+                <div class="module-subtitle">Machine Learning</div>
+                <div class="module-title">AispML</div>
+                <div class="module-description">
+                    A module dedicated to machine learning potential generation 
+                    and advanced machine learning algorithms, accelerating 
+                    materials discovery through data-driven approaches.
+                </div>
+            </div>
+        </div>
+        
+        <div class="features-section">
+            <h3>Key Features</h3>
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">
+                        <strong>Flexible Framework:</strong> JSON-based input parameter system 
+                        for user-friendly configuration and automation
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">
+                        <strong>Modern Architecture:</strong> Completely refactored codebase 
+                        with enhanced performance and maintainability
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">
+                        <strong>VASP Integration:</strong> Seamless interface with Vienna Ab initio 
+                        Simulation Package for first-principles calculations
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">
+                        <strong>Python/C++ Hybrid:</strong> High-performance implementation 
+                        combining Python flexibility with C++ efficiency
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>Enhanced Functionality</h3>
+            <p>
+                The existing codebase has undergone comprehensive refactoring, 
+                significantly expanding its functionality with numerous new features 
+                and improvements for better performance and user experience.
+            </p>
+        </div>
+        
+        <h2 class="intro-text">
+            We implement a crystal structure prediction package AISP which offers 
+            generating structure with symmetry constraints combined with a first-principles 
+            genetic algorithm (GA) for structural search. AISP is written in Python and C++, 
+            and currently interfaces with Vienna Ab initio Simulation Package (VASP) to 
+            perform local optimizations in energy and force.
+        </h2>
+        
+        <h2 class="intro-text">
+            A flexible framework of input parameters is also established based on JSON 
+            format to make AISP user-friendly and easily configurable for diverse 
+            research needs.
+        </h2>
     </div>
-    <!--end holder-->
-
-   
-   
+    
+    <div class="hero-image">
+        <img src="images/picture.png" width="251" height="326" alt="AISP Visualization">
+        <div style="margin-top: 10px; font-size: 12px; color: #666; font-style: italic;">
+            AISP: Advanced tools for materials discovery
+        </div>
     </div>
-   <!--end container-->
-   
-   <!--start footer-->
-   <footer>
-   <div class="container">  
-   <div id="FooterTwo"> © 2021 AISP PROJECT </div>
-   <div id="FooterTree">  <a href="http://www.aisp.tech" target="_blank" title="AISP">AISP HOME</a>   </div> 
-   </div>
-   </footer>
-   <!--end footer-->
- 
-   </body></html>
+</div>
+
+</div>
+<!--end intro-->
+
+<!--start holder-->
+<div class="holder_content"></div>
+<!--end holder-->
+
+</div>
+<!--end container-->
+
+<!--start footer-->
+<footer>
+<div class="container">  
+<div id="FooterTwo">© 2021 AISP PROJECT</div>
+<div id="FooterTree"><a href="http://www.aisp.tech" target="_blank" title="AISP">AISP HOME</a></div> 
+</div>
+</footer>
+<!--end footer-->
+
+</body>
+</html>
