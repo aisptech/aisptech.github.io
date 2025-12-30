@@ -1,18 +1,17 @@
-<!doctype html>  
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Team</title>
 <link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
- <!--[if lt IE 9]>
- <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
 
 <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/> 
 <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 <link type="text/css" href="css/css3.css" rel="stylesheet" />
 <script type="text/javascript" src="https://libs.baidu.com/jquery/1.6.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.pikachoose.js"></script>
-<script language="javascript">
+<script>
     $(document).ready(
         function (){
             $("#pikame").PikaChoose();
@@ -33,17 +32,35 @@
                     content.style.maxHeight = null;
                 } else {
                     content.style.maxHeight = content.scrollHeight + "px";
+                    requestAnimationFrame(function() {
+                        const rect = content.getBoundingClientRect();
+                        const overflow = rect.bottom - window.innerHeight;
+                        if (overflow > 0) {
+                            const targetTop = window.pageYOffset + overflow + 20;
+                            try {
+                                window.scrollTo({ top: targetTop, behavior: 'smooth' });
+                            } catch (e) {
+                                window.scrollTo(0, targetTop);
+                            }
+                        }
+                    });
                 }
             });
         });
-        
-        // 默认展开第一个部分（核心开发者）
-     <!--   document.querySelector('.collapsible-header').click(); -->
+
+        window.addEventListener('resize', function() {
+            document.querySelectorAll('.collapsible-header.active').forEach(activeHeader => {
+                const content = activeHeader.nextElementSibling;
+                if (content) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
     });
 </script>
 
 </head>
-<body>
+<body class="team-page">
 
 <!--start container-->
 <div id="container">
@@ -74,11 +91,11 @@
 <div id="intro2">
 
 <div class="group_bannner_right">
-<img src="images/picture.png" width="251" height="326" alt="team illustration">
+<img src="images/picture.png" width="251" height="326" alt="team illustration" loading="lazy" decoding="async">
 </div>
 
-<header class="group_bannner_left">
-<hgroup>
+<div class="group_bannner_left">
+<div class="hgroup">
 <h1>Development Team</h1>
 
 <!-- 教授信息 -->
@@ -95,7 +112,7 @@
 
 <!-- 核心开发者部分 -->
 <div class="collapsible-section">
-    <button class="collapsible-header">Core Development Team (5 members)</button>
+    <button class="collapsible-header">Core Development Team (Now 6 members)</button>
     <div class="collapsible-content">
         <div class="compact-team-grid">
             <div class="compact-card">
@@ -103,15 +120,15 @@
                 <div class="compact-role">Lead Architect & Designer</div>
                 <div class="compact-info">Responsible for the overall architecture and design of the AISP program.</div>
                 <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
-                <div class="compact-contact">dancingw@ustc.edu.cn</div>
+                <a class="team-email" href="mailto:dancingw@ustc.edu.cn">dancingw@ustc.edu.cn</a>
             </div>
             
             <div class="compact-card">
                 <div class="compact-name">Chan Yong Keat</div>
                 <div class="compact-role">Functional Development & Optimization</div>
                 <div class="compact-info">Development of AispGen, AispOP programs and subsequent functionalities.</div>
-                <div class="compact-info"><strong>Affiliation:</strong> USM, Malaysia</div>
-                <div class="compact-contact">cykeat@student.usm.my</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USM, Malaysia,USTC</div>
+                <a class="team-email" href="mailto:cykeat@student.usm.my">cykeat@student.usm.my</a>
             </div>
             
             <div class="compact-card">
@@ -119,7 +136,7 @@
                 <div class="compact-role">Post-processing & Workflows</div>
                 <div class="compact-info">Development of post-processing scripts and workflows in Aisp.</div>
                 <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
-                <div class="compact-contact">yanglizhou@mail.ustc.edu.cn</div>
+                <a class="team-email" href="mailto:yanglizhou@mail.ustc.edu.cn">yanglizhou@mail.ustc.edu.cn</a>
             </div>
             
             <div class="compact-card">
@@ -127,7 +144,7 @@
                 <div class="compact-role">Machine Learning Algorithms</div>
                 <div class="compact-info">Functional design and development of ML potentials and algorithms (AispML).</div>
                 <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
-                <div class="compact-contact">myk@mail.ustc.edu.cn</div>
+                <a class="team-email" href="mailto:myk@mail.ustc.edu.cn">myk@mail.ustc.edu.cn</a>
             </div>
             
             <div class="compact-card">
@@ -135,7 +152,15 @@
                 <div class="compact-role">API Interfaces</div>
                 <div class="compact-info">Design and development of API functional interfaces in AISP.</div>
                 <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
-                <div class="compact-contact">xiang_yanjin@mail.ustc.edu.cn</div>
+                <a class="team-email" href="mailto:xiang_yanjin@mail.ustc.edu.cn">xiang_yanjin@mail.ustc.edu.cn</a>
+            </div>
+			
+			   <div class="compact-card">
+                <div class="compact-name">Yong Liu</div>
+                <div class="compact-role">AI Agent</div>
+                <div class="compact-info">The adaptation design and development of AISP and AI agents.</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <a class="team-email" href="mailto:thefivespace@gmail.com">thefivespace@gmail.com</a>
             </div>
         </div>
     </div>
@@ -143,42 +168,50 @@
 
 <!-- 合作者部分 -->
 <div class="collapsible-section">
-    <button class="collapsible-header">Collaborators (7 members)</button>
+    <button class="collapsible-header">Collaborators (Now 6 members)</button>
     <div class="collapsible-content">
         <div class="compact-team-grid">
+		
+		 <div class="compact-card cooperator">
+                <div class="compact-name">Wei Hu</div>
+                <div class="compact-role">Collaborator</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <a class="team-email" href="mailto:whuustc@ustc.edu.cn">whuustc@ustc.edu.cn</a>
+            </div>
             <div class="compact-card cooperator">
                 <div class="compact-name">Jiajun Wang</div>
                 <div class="compact-role">Collaborator</div>
                 <div class="compact-info"><strong>Affiliation:</strong> Tianjin Normal University</div>
-                <div class="compact-contact">hxxywjj@tjnu.edu.cn</div>
+                <a class="team-email" href="mailto:hxxywjj@tjnu.edu.cn">hxxywjj@tjnu.edu.cn</a>
             </div>
             
             <div class="compact-card cooperator">
                 <div class="compact-name">Zhaoyong Guan</div>
                 <div class="compact-role">Collaborator</div>
                 <div class="compact-info"><strong>Affiliation:</strong> Shandong University</div>
-                <div class="compact-contact">zyguan@sdu.edu.cn</div>
+                <a class="team-email" href="mailto:zyguan@sdu.edu.cn">zyguan@sdu.edu.cn</a>
             </div>
             
             <div class="compact-card cooperator">
                 <div class="compact-name">Zhiwen Zhuo</div>
                 <div class="compact-role">Collaborator</div>
                 <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
-                <div class="compact-contact">zhuozw@ustc.edu.cn</div>
+                <a class="team-email" href="mailto:zhuozw@ustc.edu.cn">zhuozw@ustc.edu.cn</a>
             </div>
-            
+			
+			
             <div class="compact-card cooperator">
                 <div class="compact-name">Ke Xu</div>
                 <div class="compact-role">Collaborator</div>
                 <div class="compact-info"><strong>Affiliation:</strong> Hubei University of Arts and Science</div>
-                <div class="compact-contact">xuke@hbuas.edu.cn</div>
+                <a class="team-email" href="mailto:xuke@hbuas.edu.cn">xuke@hbuas.edu.cn</a>
             </div>
             
             <div class="compact-card cooperator">
                 <div class="compact-name">Jie Meng</div>
                 <div class="compact-role">Collaborator & Former team developer</div>
                 <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
-                <div class="compact-contact">damp@mail.ustc.edu.cn</div>
+                <a class="team-email" href="mailto:damp@mail.ustc.edu.cn">damp@mail.ustc.edu.cn</a>
             </div>
         </div>
     </div>
@@ -186,8 +219,8 @@
 
 
 
-</hgroup>
-</header>
+</div>
+</div>
 </div>
 <!--end intro-->
 

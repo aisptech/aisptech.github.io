@@ -1,6 +1,8 @@
-<!doctype html>  
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Introduction - AISP</title>
 <link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
  <!--[if lt IE 9]>
@@ -12,7 +14,7 @@
 <link type="text/css" href="css/css3.css" rel="stylesheet" />
 <script type="text/javascript" src="https://libs.baidu.com/jquery/1.6.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.pikachoose.js"></script>
-<script language="javascript">
+<script>
     $(document).ready(
         function (){
             $("#pikame").PikaChoose();
@@ -242,10 +244,17 @@
         margin-bottom: 20px;
         max-width: 800px;
     }
+
+    #intro2 {
+        height: auto;
+        min-height: 0;
+        padding-bottom: 80px;
+        z-index: 0;
+    }
 </style>
 
 </head>
-<body>
+<body class="intro-page">
 
 <!--start container-->
 <div id="container">
