@@ -633,6 +633,63 @@ nav ul li a.current{
 			   TEAM PAGE OPTIMIZATION
 ***************************************************/
 
+.team-page #container {
+	width: 100%;
+	max-width: 1200px;
+}
+
+.team-page #intro2 {
+	width: 100%;
+	float: none;
+	height: auto !important;
+	min-height: 0;
+	padding: 40px 20px 60px 20px;
+	background: white;
+	margin-top: 90px;
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
+	border-radius: 10px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+	position: relative;
+	z-index: 0;
+}
+
+.team-page header {
+	position: relative;
+	z-index: 2;
+}
+
+.team-page .group_bannner_left {
+	width: auto;
+	position: relative;
+	top: 0;
+	margin-top: 0;
+	margin-left: 0;
+	flex: 1 1 auto;
+}
+
+.team-page .group_bannner_right {
+	width: 320px;
+	position: relative;
+	top: 0;
+	right: 0;
+	margin-top: 0;
+	flex: 0 0 320px;
+	order: 2;
+}
+
+.team-page .group_bannner_right img {
+	width: 100%;
+	height: auto;
+	display: block;
+	transition: transform 0.3s ease;
+}
+
+.team-page .group_bannner_right img:hover {
+	transform: translateY(-4px);
+}
+
 /* 两列布局 */
 .team-columns {
     display: flex;
@@ -771,11 +828,11 @@ nav ul li a.current{
 ***************************************************/
 
 /* 折叠/展开区域样式 */
-.collapsible-section {
+.team-page .collapsible-section {
     margin-bottom: 15px;
 }
 
-.collapsible-header {
+.team-page .collapsible-header {
     background: linear-gradient(to right, #663366, #8a2be2);
     color: white;
     cursor: pointer;
@@ -795,58 +852,65 @@ nav ul li a.current{
     box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
-.collapsible-header:hover {
+.team-page .collapsible-header:hover {
     background: linear-gradient(to right, #8a2be2, #663366);
     transform: translateY(-2px);
     box-shadow: 0 5px 12px rgba(0,0,0,0.15);
 }
 
-.collapsible-header::after {
+.team-page .collapsible-header::after {
     content: '\25BC'; /* 向下箭头 */
     font-size: 14px;
     transition: transform 0.3s;
 }
 
-.collapsible-header.active::after {
+.team-page .collapsible-header.active::after {
     content: '\25B2'; /* 向上箭头 */
 }
 
-.collapsible-content {
+.team-page .collapsible-content {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
     background-color: #fff;
     border-radius: 0 0 8px 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+	position: relative;
+	z-index: 0;
 }
 
 /* 紧凑卡片布局 */
-.compact-team-grid {
+.team-page .compact-team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 15px;
+    grid-template-columns: 1fr;
+    gap: 20px;
     padding: 20px;
+	align-items: stretch;
 }
 
-.compact-card {
+.team-page .compact-card {
     background: white;
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     border-left: 4px solid #00CCFF;
     transition: all 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow-wrap: anywhere;
 }
 
-.compact-card:hover {
+.team-page .compact-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.12);
 }
 
-.compact-card.cooperator {
+.team-page .compact-card.cooperator {
     border-left-color: #33CC99;
 }
 
-.compact-name {
+.team-page .compact-name {
     font-size: 16px;
     font-weight: bold;
     color: #663366;
@@ -855,30 +919,52 @@ nav ul li a.current{
     border-bottom: 1px solid #eee;
 }
 
-.compact-role {
+.team-page .compact-role {
     font-size: 13px;
     color: #00CCFF;
     font-weight: bold;
     margin-bottom: 8px;
 }
 
-.compact-info {
+.team-page .compact-info {
     font-size: 12px;
     color: #666;
     line-height: 1.4;
     margin-bottom: 5px;
 }
 
-.compact-contact {
+.team-page .compact-contact {
     font-size: 11px;
     color: #888;
     margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px dotted #eee;
+    padding-top: 0;
+    border-top: none;
+}
+
+.team-page .team-email {
+	display: block;
+	margin-top: 6px;
+	padding: 10px 12px;
+	border-radius: 8px;
+	background: #f8f6ff;
+	border: 1px solid #e6ddff;
+	color: #663366;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 1.2;
+	text-decoration: none;
+	transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-page .team-email:hover {
+	background: #663366;
+	color: white;
+	transform: translateY(-1px);
+	box-shadow: 0 6px 16px rgba(102, 51, 102, 0.18);
 }
 
 /* 教授信息样式 */
-.professor-info {
+.team-page .professor-info {
     display: flex;
     align-items: flex-start;
     gap: 30px;
@@ -889,30 +975,30 @@ nav ul li a.current{
     border: 1px solid #e0e0e0;
 }
 
-.professor-text {
+.team-page .professor-text {
     flex: 1;
 }
 
-.professor-text h3 {
+.team-page .professor-text h3 {
     font-size: 22px;
     color: #663366;
     margin-bottom: 10px;
 }
 
-.professor-text p {
+.team-page .professor-text p {
     font-size: 14px;
     line-height: 1.5;
     color: #555;
 }
 
-.professor-links {
+.team-page .professor-links {
     display: flex;
     flex-direction: column;
     gap: 10px;
     min-width: 200px;
 }
 
-.professor-link {
+.team-page .professor-link {
     display: block;
     background: white;
     padding: 12px 15px;
@@ -925,33 +1011,74 @@ nav ul li a.current{
     text-align: center;
 }
 
-.professor-link:hover {
+.team-page .professor-link:hover {
     background: #663366;
     color: white;
     transform: translateX(5px);
 }
 
 /* 响应式设计 */
-@media (max-width: 768px) {
-    .compact-team-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .professor-info {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .professor-links {
-        width: 100%;
-    }
+@media (min-width: 768px) {
+	.team-page .compact-team-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.team-page .compact-card {
+		padding: 12px;
+	}
+
+	.team-page .compact-name {
+		font-size: 15px;
+	}
+
+	.team-page .compact-role {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 991px) {
+	.team-page #intro2 {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.team-page .group_bannner_right {
+		width: 100%;
+		max-width: 320px;
+		flex: 0 0 auto;
+		order: 0;
+	}
+
+	.team-page .group_bannner_left {
+		width: 100%;
+	}
+
+	.team-page .professor-info {
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.team-page .professor-links {
+		width: 100%;
+	}
+}
+
+@media (max-width: 767px) {
+	.team-page #intro2 {
+		padding: 25px 15px 35px 15px;
+	}
+
+	.team-page .collapsible-header {
+		font-size: 16px;
+		padding: 12px 15px;
+	}
 }
 
 /* 页脚上方空白减少 */
-#intro2 {
-    height: auto !important;
-    min-height: 1288px;
-    padding-bottom: 30px !important;
+.team-page #intro2 {
+	padding-bottom: 30px !important;
 }
 
 /* 欢迎加入样式 */
