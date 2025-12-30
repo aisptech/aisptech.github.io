@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team</title>
+<link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
+
+<link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/> 
+<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+<link type="text/css" href="css/css3.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/mobile.css"/>
+<script type="text/javascript" src="https://libs.baidu.com/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.pikachoose.js"></script>
+<script>
+    $(document).ready(
+        function (){
+            $("#pikame").PikaChoose();
+        });
+</script>
+
+<!-- 折叠/展开功能脚本 -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const collapsibles = document.querySelectorAll('.collapsible-header');
+        
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    requestAnimationFrame(function() {
+                        const rect = content.getBoundingClientRect();
+                        const overflow = rect.bottom - window.innerHeight;
+                        if (overflow > 0) {
+                            const targetTop = window.pageYOffset + overflow + 20;
+                            try {
+                                window.scrollTo({ top: targetTop, behavior: 'smooth' });
+                            } catch (e) {
+                                window.scrollTo(0, targetTop);
+                            }
+                        }
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('resize', function() {
+            document.querySelectorAll('.collapsible-header.active').forEach(activeHeader => {
+                const content = activeHeader.nextElementSibling;
+                if (content) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+    });
+</script>
+
+</head>
+<body class="m-site team-page">
+
+<!--start container-->
+<div id="container">
+
+<!--start header-->
+<header>
+
+<!--start logo-->
+<a href="#" id="logo"><img src="images/logo.png" width="310" height="100" alt="logo"/></a>    
+
+<!--end logo-->
+
+<!--start menu-->
+<nav>
+<ul>
+<li><a href="intro.html">AISP</a></li>
+<li><a href="features.html">Features</a></li>
+<li><a href="team.html" class="current">Development Team</a></li>
+<li><a href="tut.html">Tutorial</a></li>
+</ul>
+</nav>
+<!--end menu-->
+
+<!--end header-->
+</header>
+
+<!--start intro-->
+<div id="intro2">
+
+<div class="group_bannner_right">
+<img src="images/picture.png" width="251" height="326" alt="team illustration" loading="lazy" decoding="async">
+</div>
+
+<div class="group_bannner_left">
+<div class="hgroup">
+<h1>Development Team</h1>
+
+<!-- 教授信息 -->
+<div class="professor-info">
+    <h3 class="professor-heading">Project Supervisors</h3>
+    <div class="professor-links">
+        <a href="http://staff.ustc.edu.cn/~liqun/" target="_blank" class="professor-link">Prof. Qunxiang Li</a>
+        <a href="http://staff.ustc.edu.cn/~jlyang/" target="_blank" class="professor-link">Prof. Jinlong Yang</a>
+    </div>
+    <p class="professor-desc">AISP project is supervised by distinguished professors at the University of Science and Technology of China</p>
+</div>
+
+<!-- 核心开发者部分 -->
+<div class="collapsible-section">
+    <button class="collapsible-header">Core Development Team (Now 6 members)</button>
+    <div class="collapsible-content">
+        <div class="compact-team-grid">
+            <div class="compact-card">
+                <div class="compact-name">WeiYi Wang</div>
+                <div class="compact-role">Lead Architect & Designer</div>
+                <div class="compact-info">Responsible for the overall architecture and design of the AISP program.</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <a class="team-email" href="mailto:dancingw@ustc.edu.cn">dancingw@ustc.edu.cn</a>
+            </div>
+            
+            <div class="compact-card">
+                <div class="compact-name">Chan Yong Keat</div>
+                <div class="compact-role">Functional Development & Optimization</div>
+                <div class="compact-info">Development of AispGen, AispOP programs and subsequent functionalities.</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USM, Malaysia,USTC</div>
+                <a class="team-email" href="mailto:cykeat@student.usm.my">cykeat@student.usm.my</a>
+            </div>
+            
+            <div class="compact-card">
+                <div class="compact-name">Lizhou Yang</div>
+                <div class="compact-role">Post-processing & Workflows</div>
+                <div class="compact-info">Development of post-processing scripts and workflows in Aisp.</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <a class="team-email" href="mailto:yanglizhou@mail.ustc.edu.cn">yanglizhou@mail.ustc.edu.cn</a>
+            </div>
+            
+            <div class="compact-card">
+                <div class="compact-name">Yankai Mo</div>
+                <div class="compact-role">Machine Learning Algorithms</div>
+                <div class="compact-info">Functional design and development of ML potentials and algorithms (AispML).</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <a class="team-email" href="mailto:myk@mail.ustc.edu.cn">myk@mail.ustc.edu.cn</a>
+            </div>
+            
+            <div class="compact-card">
+                <div class="compact-name">YanJin Xiang</div>
+                <div class="compact-role">API Interfaces</div>
+                <div class="compact-info">Design and development of API functional interfaces in AISP.</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <a class="team-email" href="mailto:xiang_yanjin@mail.ustc.edu.cn">xiang_yanjin@mail.ustc.edu.cn</a>
+            </div>
+			
+			   <div class="compact-card">
+                <div class="compact-name">Yong Liu</div>
+                <div class="compact-role">AI Agent</div>
+                <div class="compact-info">The adaptation design and development of AISP and AI agents.</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <a class="team-email" href="mailto:thefivespace@gmail.com">thefivespace@gmail.com</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 合作者部分 -->
+<div class="collapsible-section">
+    <button class="collapsible-header">Collaborators (Now 6 members)</button>
+    <div class="collapsible-content">
+        <div class="compact-team-grid">
+		
+		 <div class="compact-card cooperator">
+                <div class="compact-name">Wei Hu</div>
+                <div class="compact-role">Collaborator</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <a class="team-email" href="mailto:whuustc@ustc.edu.cn">whuustc@ustc.edu.cn</a>
+            </div>
+            <div class="compact-card cooperator">
+                <div class="compact-name">Jiajun Wang</div>
+                <div class="compact-role">Collaborator</div>
+                <div class="compact-info"><strong>Affiliation:</strong> Tianjin Normal University</div>
+                <a class="team-email" href="mailto:hxxywjj@tjnu.edu.cn">hxxywjj@tjnu.edu.cn</a>
+            </div>
+            
+            <div class="compact-card cooperator">
+                <div class="compact-name">Zhaoyong Guan</div>
+                <div class="compact-role">Collaborator</div>
+                <div class="compact-info"><strong>Affiliation:</strong> Shandong University</div>
+                <a class="team-email" href="mailto:zyguan@sdu.edu.cn">zyguan@sdu.edu.cn</a>
+            </div>
+            
+            <div class="compact-card cooperator">
+                <div class="compact-name">Zhiwen Zhuo</div>
+                <div class="compact-role">Collaborator</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <a class="team-email" href="mailto:zhuozw@ustc.edu.cn">zhuozw@ustc.edu.cn</a>
+            </div>
+			
+			
+            <div class="compact-card cooperator">
+                <div class="compact-name">Ke Xu</div>
+                <div class="compact-role">Collaborator</div>
+                <div class="compact-info"><strong>Affiliation:</strong> Hubei University of Arts and Science</div>
+                <a class="team-email" href="mailto:xuke@hbuas.edu.cn">xuke@hbuas.edu.cn</a>
+            </div>
+            
+            <div class="compact-card cooperator">
+                <div class="compact-name">Jie Meng</div>
+                <div class="compact-role">Collaborator & Former team developer</div>
+                <div class="compact-info"><strong>Affiliation:</strong> USTC</div>
+                <a class="team-email" href="mailto:damp@mail.ustc.edu.cn">damp@mail.ustc.edu.cn</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+<!--end intro-->
+
+<!--start holder-->
+<div class="holder_content"></div>
+<!--end holder-->
+
+</div>
+<!--end container-->
+
+
+<footer>
+<div class="container">  
+<div id="FooterTwo">© 2021 AISP PROJECT</div>
+<div id="FooterTree"><a href="http://www.aisp.tech" target="_blank" title="AISP">AISP HOME</a></div> 
+</div>
+</footer>
+</body>
+<!--start footer-->
+
+<!--end footer-->
+
+</html>
+
+
+
+

@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AISP-Home</title>
+<link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
+ <!--[if lt IE 9]>
+ <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+<link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/> 
+<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+<link type="text/css" href="css/css3.css" rel="stylesheet" />
+<!-- 添加图标字体 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+    /* 中间内容区域美化 */
+    
+    /* 顶部banner区域 */
+    #intro {
+        width: 960px;
+        position: relative;
+        float: left;
+        min-height: 380px;
+        padding: 40px 20px;
+        background: linear-gradient(135deg, #f8f6ff 0%, #eef7ff 100%);
+        margin-top: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+    
+    #intro::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #663366, #00CCFF, #33CC99);
+    }
+    
+    /* 左侧标题区域 */
+    .group_bannner_left {
+        width: 580px;
+        position: relative;
+        top: 0;
+        background: transparent;
+        margin: 0;
+        padding: 0;
+        z-index: 2;
+    }
+    
+    /* 右侧图片区域 */
+    .group_bannner_right {
+        width: 320px;
+        position: relative;
+        top: 0;
+        right: 0;
+        background: transparent;
+        margin: 0;
+    }
+    
+    .group_bannner_right img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 15px 35px rgba(102, 51, 102, 0.2);
+        transition: transform 0.5s ease;
+        transform-style: preserve-3d;
+    }
+    
+    .group_bannner_right img:hover {
+        transform: translateY(-10px) rotateX(5deg);
+        box-shadow: 0 25px 50px rgba(102, 51, 102, 0.3);
+    }
+    
+    /* 主标题美化 */
+    h1 {
+        font-size: 3.2rem;
+        color: #663366;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 15px;
+        font-weight: bold;
+        line-height: 1.2;
+    }
+    
+    h1::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 120px;
+        height: 4px;
+        background: linear-gradient(90deg, #00CCFF, #663366);
+        border-radius: 2px;
+    }
+    
+    h1 b {
+        color: #00CCFF;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* 副标题美化 */
+    h2 {
+        font-size: 1.4rem;
+        line-height: 1.7;
+        color: #444;
+        width: 100%;
+        padding-top: 15px;
+        margin-left: 0;
+        font-style: italic;
+        font-weight: normal;
+        border-left: 4px solid #33CC99;
+        padding-left: 20px;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* 三个特色区块美化 */
+    .holder_content {
+        position: relative;
+        float: left;
+        width: 100%;
+        margin-top: 40px;
+        background: transparent;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        padding: 10px 0;
+    }
+    
+    /* 移除背景线 */
+    .holder_content {
+        background: none !important;
+    }
+    
+    .group1, .group2, .group3 {
+        float: none;
+        width: 100%;
+        position: relative;
+        background: white;
+        padding: 25px;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s ease;
+        border-top: 5px solid #00CCFF;
+        overflow: hidden;
+    }
+    
+    .group2 {
+        border-top-color: #33CC99;
+    }
+    
+    .group3 {
+        border-top-color: #663366;
+    }
+    
+    .group1:hover, .group2:hover, .group3:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    }
+    
+    .group1::before, .group2::before, .group3::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, #00CCFF, transparent);
+    }
+    
+    .group2::before {
+        background: linear-gradient(90deg, #33CC99, transparent);
+    }
+    
+    .group3::before {
+        background: linear-gradient(90deg, #663366, transparent);
+    }
+    
+    /* 区块标题美化 */
+    h3 {
+        font-size: 1.8rem;
+        line-height: 1.4;
+        color: #663366;
+        text-transform: capitalize;
+        text-align: left;
+        background-color: transparent;
+        padding-top: 0;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 12px;
+        font-weight: bold;
+    }
+    
+    h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: #00CCFF;
+        border-radius: 2px;
+    }
+    
+    .group2 h3::after {
+        background: #33CC99;
+    }
+    
+    .group3 h3::after {
+        background: #663366;
+    }
+    
+    /* 区块内容美化 */
+    .group1 p, .group2 p, .group3 p {
+        font-size: 14.5px;
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 20px;
+    }
+    
+    .group1 p::before, .group2 p::before, .group3 p::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: #00CCFF;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    
+    .group2 p::before {
+        color: #33CC99;
+    }
+    
+    .group3 p::before {
+        color: #663366;
+    }
+    
+    /* "Read more"链接美化 */
+    .read_more {
+        color: #663366;
+        font-size: 15px;
+        float: right;
+        margin-top: 20px;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 6px;
+        background: #f0f7ff;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .read_more::after {
+        content: '→';
+        font-weight: bold;
+        transition: transform 0.3s ease;
+    }
+    
+    .read_more:hover {
+        background: #663366;
+        color: white;
+        transform: translateX(5px);
+    }
+    
+    .read_more:hover::after {
+        transform: translateX(5px);
+    }
+    
+    /* 版本发布样式优化 */
+    .group3 p {
+        padding-left: 0;
+        border-left: none;
+        position: relative;
+        margin-bottom: 12px;
+    }
+    
+    .group3 p::before {
+        display: none;
+    }
+    
+    .group3 p:first-of-type {
+        font-weight: bold;
+        color: #663366;
+        background: #f8f6ff;
+        padding: 10px 15px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        border-left: 4px solid #663366;
+    }
+    
+    /* 加入团队卡片 - 放置在三个区块之后 */
+    .join-section {
+        grid-column: 1 / -1;
+        margin-top: 30px;
+    }
+    
+    .join-card {
+        background: linear-gradient(135deg, #f0f7ff, #e6f3ff);
+        border: 2px dashed #00CCFF;
+        text-align: center;
+        padding: 40px 30px;
+        border-radius: 15px;
+        margin-top: 30px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+    }
+    
+    .join-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 204, 255, 0.2);
+        border-style: solid;
+        border-color: #663366;
+    }
+    
+    .join-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #00CCFF, #663366, #33CC99);
+    }
+    
+    .join-title {
+        font-size: 1.8rem;
+        color: #663366;
+        margin-bottom: 15px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .join-title i {
+        color: #00CCFF;
+        font-size: 2rem;
+    }
+    
+    .join-info {
+        font-size: 1.1rem;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        font-style: italic;
+    }
+    
+    .join-contact {
+        font-size: 1rem;
+        color: #663366;
+        font-weight: bold;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px dashed #ddd;
+    }
+    
+    .join-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #663366, #8a2be2);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(102, 51, 102, 0.3);
+    }
+    
+    .join-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(102, 51, 102, 0.4);
+        background: linear-gradient(135deg, #8a2be2, #663366);
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 992px) {
+        #intro {
+            width: 100%;
+            flex-direction: column;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .group_bannner_left {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        
+        .group_bannner_right {
+            width: 100%;
+            max-width: 320px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h1::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        h2 {
+            border-left: none;
+            padding-left: 15px;
+            text-align: center;
+            border-top: 4px solid #33CC99;
+            border-left: none;
+            padding-top: 20px;
+        }
+        
+        .holder_content {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .group1, .group2, .group3 {
+            margin-bottom: 0;
+        }
+    }
+    
+    /* 动画效果 */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    #intro {
+        animation: fadeIn 0.8s ease;
+    }
+    
+    .group1 {
+        animation: fadeIn 0.8s ease 0.2s forwards;
+        opacity: 0;
+    }
+    
+    .group2 {
+        animation: fadeIn 0.8s ease 0.4s forwards;
+        opacity: 0;
+    }
+    
+    .group3 {
+        animation: fadeIn 0.8s ease 0.6s forwards;
+        opacity: 0;
+    }
+    
+    .join-card {
+        animation: fadeIn 0.8s ease 0.8s forwards;
+        opacity: 0;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="css/mobile.css"/>
+<script type="text/javascript" src="https://libs.baidu.com/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.pikachoose.js"></script>
+<script language="javascript">
+    $(document).ready(
+        function (){
+            $("#pikame").PikaChoose();
+        });
+</script>
+
+</head>
+<body class="m-site">
+
+    
+    <!--start container-->
+    <div id="container">
+
+    <!--start header-->
+    <header>
+        <!--start logo-->
+        <a href="#" id="logo"><img src="images/logo.png" width="310" height="100" alt="AISP Logo"/></a>    
+        <!--end logo-->
+        
+        <!--start menu-->
+        <nav>
+            <ul>
+                <li><a href="intro.html">AISP</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="team.html">Development Team</a></li>
+                <li><a href="tut.html">Tutorial</a></li>
+            </ul>
+        </nav>
+        <!--end menu-->
+    </header>
+    <!--end header-->
+
+    <!--start intro-->
+    <div id="intro">
+        <div class="group_bannner_left">
+            <hgroup>
+                <h1><b>A</b>ISP <b>I</b>s <b>S</b>tructure <b>P</b>redictor</h1>
+                <h2>"To explore the interplay of experiment, theory and computation in Materials Genome"</h2>
+            </hgroup>
+        </div>
+        
+        <div class="group_bannner_right">
+            <img src="images/picture.png" width="251" height="326" alt="AISP Structure Prediction Visualization" loading="lazy" decoding="async">
+        </div>
+    </div>
+    <!--end intro-->
+
+    <!--start holder-->
+    <div class="holder_content">
+        <section class="group1">
+            <h3>Introduction</h3>
+            <p>We implement a crystal structure prediction package AISP which offers generating structure with symmetry constraints combined with a first-principles genetic algorithm (GA) for structural search. AISP is written in Python, and currently interfaces with VASP to perform local optimizations in energy and force.</p>
+            <a href="intro.html" class="current"><span class="read_more">Read more...</span></a>
+        </section>
+
+        <section class="group2">
+            <h3>Features</h3>
+            <p>Generating 3D, 2D, 1D, 0D crystal Structures with symmetry restriction</p>
+            <p>XRD simulation support</p>
+            <p>Genetic Algorithm to do global search in PES (potential energy surface)</p>
+            <p>JSON format input</p>
+            <a href="features.html" class="current"><span class="read_more">Read more...</span></a>
+        </section>
+
+        <section class="group3">
+            <h3>Release notes</h3>
+            <p>Version 1.2.0 (2025.12.30)</p>
+            <p>The AISP program has been completely restructured and has been transformed into a pure Python-based architecture.</p>
+            <p>Version 1.1.0 (2025.5.25)</p>
+            <p>Fixed some bugs, improving the stability and robustness of AISP.</p>
+            <p>Version 1.0.6 (2024.10.8)</p>
+            <p>Added the van der Waals molecular crystal structure generation module</p>
+            <p>Version 1.0.5 (2023.5.10)</p>
+            <p>Added the 0-dimensional molecular structure generation module</p>
+            <p>Version 1.0.2 (2022.6.12)</p>
+            <p>Fixed some bugs, Added the function of structural similarity detection</p>
+            <p>Version 1.0.1 (2021.1.5)</p>
+            <p>XRD simulation support</p>
+            <p>Version 1.0.0 (2020.11.22)</p>
+            <p>The first edition of AISP was written in Python/C++</p>
+        </section>
+        
+        <!-- 加入团队部分 -->
+        <div class="join-section">
+            <div class="join-card">
+                <div class="join-title">
+                    <i class="fas fa-users"></i>
+                    Join Our Team!
+                </div>
+                <div class="join-info">
+                    We welcome talented researchers and developers passionate about computational chemistry and software development to join the AISP project.
+                </div>
+                <div class="join-info">
+                    Contact us if you're interested in contributing to cutting-edge scientific software development.
+                </div>
+                <div class="join-contact">
+                    Interested? Contact:Dr.Wang@ dancingw@ustc.edu.cn
+                </div>
+                <a href="team.html" class="join-button">Meet Our Team</a>
+            </div>
+        </div>
+    </div>
+    <!--end holder-->
+    
+    </div>
+    <!--end container-->
+    
+    <!--start footer-->
+<!--	<button onclick="window.switchToDesktopVersion()">Switch to Desktop Version</button>-->
+    <footer>
+        <div class="container">  
+            <div id="FooterTwo">© 2021 AISP PROJECT</div>
+            <div id="FooterTree"><a href="http://aisp.tech" target="_blank" title="AISP">AISP HOME</a></div> 
+        </div>
+    </footer>
+    <!--end footer-->
+</body>
+</html>

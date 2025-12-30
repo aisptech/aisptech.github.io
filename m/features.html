@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Features - AISP</title>
+<link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
+ <!--[if lt IE 9]>
+ <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+<link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/> 
+<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+<link type="text/css" href="css/css3.css" rel="stylesheet" />
+<!-- 添加图标字体 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+    /* 中间内容区域美化 - 仅修改这部分 */
+    #intro2 {
+        width: 960px;
+        position: relative;
+        float: left;
+        padding: 40px 20px 60px 20px;
+        background: white;
+        margin-top: 30px;
+        min-height: auto;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* 左侧内容区域 */
+    .group_bannner_left {
+        width: 580px;
+        position: relative;
+        top: 0;
+        background: transparent;
+        margin-top: 0;
+        margin-left: 0;
+        padding-right: 40px;
+    }
+    
+    /* 右侧图片区域 */
+    .group_bannner_right {
+        width: 300px;
+        position: relative;
+        top: 0;
+        right: 0;
+        background: transparent;
+        margin-top: 0;
+    }
+    
+    .group_bannner_right img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .group_bannner_right img:hover {
+        transform: translateY(-5px);
+    }
+    
+    /* 标题美化 */
+    h1 {
+        font-size: 2.5rem;
+        color: #663366;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 15px;
+        font-weight: bold;
+    }
+    
+    h1::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #00CCFF, #663366);
+        border-radius: 2px;
+    }
+    
+    /* 特性列表美化 */
+    #ful {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    #ful li {
+        position: relative;
+        padding: 18px 15px 18px 45px;
+        margin-bottom: 12px;
+        background: #f8f9fa;
+        border-left: 4px solid #00CCFF;
+        border-radius: 0 6px 6px 0;
+        transition: all 0.3s ease;
+    }
+    
+    #ful li:hover {
+        background: #edf5ff;
+        transform: translateX(5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+    
+    #ful li::before {
+        content: '\f00c';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #00CCFF;
+        color: white;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
+    
+    #ful h2 {
+        width: 100%;
+        margin-left: 0;
+        padding-top: 0;
+        line-height: 1.5;
+        color: #333;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    
+    /* 分隔线美化 */
+    hr {
+        border: none;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #ddd, transparent);
+        margin: 30px 0;
+        width: 100%;
+    }
+    
+    /* 未来的特性样式 */
+    #ful li:nth-last-child(-n+2) {
+        border-left-color: #33CC99;
+        background: #f0f9f0;
+    }
+    
+    #ful li:nth-last-child(-n+2)::before {
+        content: '\f135';
+        background: #33CC99;
+    }
+    
+    /* 响应式调整 */
+    @media (max-width: 992px) {
+        #intro2 {
+            width: 100%;
+            padding: 30px 15px;
+            flex-direction: column;
+        }
+        
+        .group_bannner_left {
+            width: 100%;
+            padding-right: 0;
+            margin-bottom: 30px;
+        }
+        
+        .group_bannner_right {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .group_bannner_right img {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+        }
+        
+        h1::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    
+    /* 动画效果 */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    #ful li {
+        animation: fadeInUp 0.5s ease forwards;
+        opacity: 0;
+    }
+    
+    #ful li:nth-child(1) { animation-delay: 0.1s; }
+    #ful li:nth-child(2) { animation-delay: 0.2s; }
+    #ful li:nth-child(3) { animation-delay: 0.3s; }
+    #ful li:nth-child(4) { animation-delay: 0.4s; }
+    #ful li:nth-child(5) { animation-delay: 0.5s; }
+    #ful li:nth-child(6) { animation-delay: 0.6s; }
+    #ful li:nth-child(7) { animation-delay: 0.7s; }
+    #ful li:nth-child(8) { animation-delay: 0.8s; }
+    #ful li:nth-child(9) { animation-delay: 0.9s; }
+</style>
+
+<link rel="stylesheet" type="text/css" href="css/mobile.css"/>
+
+<script type="text/javascript" src="https://libs.baidu.com/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.pikachoose.js"></script>
+<script language="javascript">
+    $(document).ready(
+        function (){
+            $("#pikame").PikaChoose();
+        });
+</script>
+
+</head>
+<body class="m-site">
+
+    
+    <!--start container-->
+    <div id="container">
+
+    <!--start header-->
+    <header>
+        <!--start logo-->
+        <a href="#" id="logo"><img src="images/logo.png" width="310" height="100" alt="AISP Logo"/></a>    
+        <!--end logo-->
+        
+        <!--start menu-->
+        <nav>
+            <ul>
+                <li><a href="intro.html">AISP</a></li>
+                <li><a href="features.html" class="current">Features</a></li>
+                <li><a href="team.html">Development Team</a></li>
+                <li><a href="tut.html">Tutorial</a></li>
+            </ul>
+        </nav>
+        <!--end menu-->
+    </header>
+    <!--end header-->
+
+    <!--start intro-->
+    <div id="intro2">
+        <div class="group_bannner_left">
+            <hgroup>
+                <h1>Features</h1>
+                
+                <ul id="ful">
+                    <li><h2>Pure Python-based architecture</h2></li>
+                    <li><h2>Support to simulate the XRD (X-Ray Diffraction) pattern</h2></li>
+                    <li><h2>Generating 3D 2D 1D 0D、 van der Waals (vdW)crystal 、MOF structures and Other structures with symmetry constraints</h2></li>
+                    <li><h2>Restart the search at any time during the search</h2></li>
+                    <li><h2>Support JSON format as input, be concise and easy to use</h2></li>
+                    <li><h2>First-principles genetic algorithm (GA) for structural search</h2></li>
+                    <li><h2>AISP currently interfaces with Vienna Ab initio Simulation Package (VASP) to perform local optimizations in energy and force</h2></li>
+                    
+                    <hr/>
+                    
+                    <li><h2>AISP will support simulated annealing algorithm, and many hybrid optimization algorithms to do structure search</h2></li>
+                    <li><h2>AISP will support PWDFT, Quantum ESPRESSO, Gaussian, Openmx, Siesta ... etc as optimizers in the future</h2></li>
+                </ul>
+            </hgroup>
+        </div>
+        
+        <div class="group_bannner_right">
+            <img src="images/picture.png" width="251" height="326" alt="AISP Features Visualization" loading="lazy" decoding="async">
+        </div>
+    </div>
+    <!--end intro-->
+    
+    <!--start holder-->
+    <div class="holder_content">
+        <!-- 可以在这里添加额外内容 -->
+    </div>
+    <!--end holder-->
+    
+    </div>
+    <!--end container-->
+    
+    <!--start footer-->
+    <footer>
+        <div class="container">  
+            <div id="FooterTwo">© 2021 AISP PROJECT</div>
+            <div id="FooterTree"><a href="http://aisp.tech" target="_blank" title="AISP">AISP HOME</a></div> 
+        </div>
+    </footer>
+    <!--end footer-->
+</body>
+</html>
