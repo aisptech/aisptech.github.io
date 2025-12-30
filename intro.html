@@ -90,6 +90,32 @@
     .module-card.ml {
         border-color: #33CC99;
     }
+
+    .module-card.agent {
+        border-color: #ff9900;
+    }
+
+    .module-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 10px;
+        padding: 8px 12px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 13px;
+        color: #663366;
+        background: #f0f7ff;
+        transition: all 0.3s ease;
+        user-select: none;
+    }
+
+    .module-cta:hover {
+        background: #663366;
+        color: #fff;
+        transform: translateX(3px);
+    }
     
     .module-icon {
         font-size: 40px;
@@ -99,6 +125,12 @@
         padding: 10px;
         border-radius: 8px;
         background: rgba(102, 51, 102, 0.1);
+    }
+
+    .module-icon svg {
+        width: 50px;
+        height: 50px;
+        display: block;
     }
     
     .module-title {
@@ -289,13 +321,73 @@
         <h1>AISP</h1>
         <h2 class="intro-text">
             A comprehensive software suite for crystal structure prediction and analysis, 
-         integrating symmetry constraints, genetic algorithms, and machine learning, with three core modules: <b>AispGen</b>, <b>AispOP</b> and <b>AispML</b>, 
+         integrating symmetry constraints, genetic algorithms, and machine learning, with three core modules: <b>AispGen</b>, <b>AispOP</b> ,<b>AispML</b> and <b>Aisp Agent</b>.
          dedicated to advancing the discovery and research of novel materials.
         </h2>
         
         <div class="module-grid">
             <div class="module-card gen">
-                <div class="module-icon">🧬</div>
+                <div class="module-icon">
+                    <svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <defs>
+                            <linearGradient id="aispgen-stick" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#d7dde6"/>
+                                <stop offset="0.5" stop-color="#9aa6b6"/>
+                                <stop offset="1" stop-color="#e7ecf3"/>
+                            </linearGradient>
+                            <radialGradient id="aispgen-a" cx="30%" cy="30%" r="70%">
+                                <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+                                <stop offset="0.35" stop-color="#cfe6ff"/>
+                                <stop offset="1" stop-color="#2f80ed"/>
+                            </radialGradient>
+                            <radialGradient id="aispgen-b" cx="30%" cy="30%" r="70%">
+                                <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+                                <stop offset="0.35" stop-color="#d7ffe6"/>
+                                <stop offset="1" stop-color="#27ae60"/>
+                            </radialGradient>
+                            <radialGradient id="aispgen-c" cx="30%" cy="30%" r="70%">
+                                <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+                                <stop offset="0.35" stop-color="#ffe1d6"/>
+                                <stop offset="1" stop-color="#eb5757"/>
+                            </radialGradient>
+                            <radialGradient id="aispgen-d" cx="30%" cy="30%" r="70%">
+                                <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+                                <stop offset="0.35" stop-color="#efe5ff"/>
+                                <stop offset="1" stop-color="#8e44ad"/>
+                            </radialGradient>
+                        </defs>
+                        <g transform="translate(64 64) scale(1.12) translate(-64 -64)">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" opacity="0.22">
+                                <path d="M34 48 L90 48 L90 104 L34 104 Z" stroke-width="3"/>
+                                <path d="M22 36 L78 36 L78 92 L22 92 Z" stroke-width="3"/>
+                                <path d="M34 48 L22 36" stroke-width="3"/>
+                                <path d="M90 48 L78 36" stroke-width="3"/>
+                                <path d="M90 104 L78 92" stroke-width="3"/>
+                                <path d="M34 104 L22 92" stroke-width="3"/>
+                            </g>
+                            <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="url(#aispgen-stick)" opacity="0.95">
+                                <path d="M44 78 L68 56" stroke-width="10"/>
+                                <path d="M68 56 L92 72" stroke-width="10"/>
+                                <path d="M68 56 L80 32" stroke-width="10"/>
+                                <path d="M68 56 L46 40" stroke-width="10"/>
+                                <path d="M68 56 L60 92" stroke-width="10"/>
+                            </g>
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" opacity="0.22">
+                                <path d="M34 76 L64 58 L96 70" stroke-width="3"/>
+                                <path d="M64 58 L86 34" stroke-width="3"/>
+                                <path d="M64 58 L58 94" stroke-width="3"/>
+                            </g>
+                            <g>
+                                <circle cx="46" cy="40" r="13.5" fill="url(#aispgen-b)"/>
+                                <circle cx="80" cy="32" r="12.5" fill="url(#aispgen-a)"/>
+                                <circle cx="92" cy="72" r="13.5" fill="url(#aispgen-c)"/>
+                                <circle cx="60" cy="92" r="12.5" fill="url(#aispgen-d)"/>
+                                <circle cx="44" cy="78" r="12.5" fill="url(#aispgen-a)" opacity="0.9"/>
+                                <circle cx="68" cy="56" r="16" fill="url(#aispgen-b)"/>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
                 <div class="module-subtitle">Structure Generation</div>
                 <div class="module-title">AispGen</div>
                 <div class="module-description">
@@ -325,6 +417,17 @@
                     and advanced machine learning algorithms, accelerating 
                     materials discovery through data-driven approaches.
                 </div>
+            </div>
+
+            <div class="module-card agent" data-module="AispAgent">
+                <div class="module-icon">🔌</div>
+                <div class="module-subtitle">Agent Orchestration</div>
+                <div class="module-title">AispAgent</div>
+                <div class="module-description">
+                    A unified agent layer that connects external scientific tools (Matlab, R, Python libraries)、Computational workflows、and mainstream AI agents,
+                    providing a consistent RESTful/WebSocket API with extensible adapters, robust error handling, and structured logging.
+                </div>
+            <!--    <a class="module-cta" href="tut.html#aispagent" target="_blank">API &amp; Usage →</a>-->
             </div>
         </div>
         
@@ -393,6 +496,8 @@
 </div>
 </footer>
 <!--end footer-->
+
+<script src="js/aispagent.js"></script>
 
 </body>
 </html>
