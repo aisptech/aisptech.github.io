@@ -965,9 +965,11 @@ nav ul li a.current{
 
 /* 教授信息样式 */
 .team-page .professor-info {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
+	display: grid;
+	grid-template-columns: 1fr minmax(240px, 420px);
+	grid-template-areas: "title links" "desc links";
+	column-gap: 30px;
+	row-gap: 8px;
     background: linear-gradient(to right, #f8f6ff, #eef7ff);
     padding: 20px;
     border-radius: 10px;
@@ -975,33 +977,35 @@ nav ul li a.current{
     border: 1px solid #e0e0e0;
 }
 
-.team-page .professor-text {
-    flex: 1;
+.team-page .professor-heading {
+	grid-area: title;
+	font-size: 22px;
+	color: #663366;
+	margin-bottom: 0;
 }
 
-.team-page .professor-text h3 {
-    font-size: 22px;
-    color: #663366;
-    margin-bottom: 10px;
-}
-
-.team-page .professor-text p {
-    font-size: 14px;
-    line-height: 1.5;
-    color: #555;
+.team-page .professor-desc {
+	grid-area: desc;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #555;
+	max-width: 56ch;
+	margin: 0;
 }
 
 .team-page .professor-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    min-width: 200px;
+	grid-area: links;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+	min-width: 240px;
+	align-content: start;
 }
 
 .team-page .professor-link {
     display: block;
     background: white;
-    padding: 12px 15px;
+    padding: 10px 12px;
     border-radius: 6px;
     text-decoration: none;
     color: #663366;
@@ -1009,6 +1013,7 @@ nav ul li a.current{
     border: 1px solid #ddd;
     transition: all 0.3s;
     text-align: center;
+	font-size: 13px;
 }
 
 .team-page .professor-link:hover {
@@ -1056,8 +1061,9 @@ nav ul li a.current{
 	}
 
 	.team-page .professor-info {
-		flex-direction: column;
-		gap: 20px;
+		grid-template-columns: 1fr;
+		grid-template-areas: "title" "desc" "links";
+		row-gap: 12px;
 	}
 
 	.team-page .professor-links {
