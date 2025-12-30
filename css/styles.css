@@ -967,7 +967,7 @@ nav ul li a.current{
 .team-page .professor-info {
 	display: grid;
 	grid-template-columns: 1fr minmax(240px, 420px);
-	grid-template-areas: "title links" "desc links";
+	grid-template-areas: "title links" "desc desc";
 	column-gap: 30px;
 	row-gap: 8px;
     background: linear-gradient(to right, #f8f6ff, #eef7ff);
@@ -995,11 +995,12 @@ nav ul li a.current{
 
 .team-page .professor-links {
 	grid-area: links;
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
+	display: flex;
 	gap: 10px;
-	min-width: 240px;
-	align-content: start;
+	flex-wrap: nowrap;
+	min-width: 360px;
+	align-items: flex-start;
+	align-self: start;
 }
 
 .team-page .professor-link {
@@ -1014,6 +1015,8 @@ nav ul li a.current{
     transition: all 0.3s;
     text-align: center;
 	font-size: 13px;
+	flex: 1 1 0;
+	min-width: 0;
 }
 
 .team-page .professor-link:hover {
@@ -1068,6 +1071,7 @@ nav ul li a.current{
 
 	.team-page .professor-links {
 		width: 100%;
+		min-width: 0;
 	}
 }
 
